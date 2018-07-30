@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> JSON </title>
+  </head>
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"> </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"> </script>
+  <body>
+
+    <header id="ajax">
+    </header>
+
+    <ul id="names">
+    </ul>
+
+    <script>
+      // var person = {
+      //   name: "Max",
+      //   age: 27
+      // }
+      // console.log(person.name);
+      // var my_json = JSON.stringify(person);
+      // console.log(my_json);
+      // var my_obj = JSON.parse(my_json);
+      // console.log(my_obj);
+
+      // var xhttp = new XMLHttpRequest();
+      //   xhttp.onreadystatechange = function() {
+      //       if (this.readyState == 4 && this.status == 200) {
+               // Typical action to be performed when the document is ready:
+               // document.getElementById("demo").innerHTML = xhttp.responseText;
+      //          var output = "";
+      //          var response = JSON.parse(xhttp.responseText);
+      //          for(var i = 0; i < response.person.length; i ++) {
+      //            //console.log(response.person[i].name);
+      //            output += `<li>${response.person[i].name}</li>`;
+      //          }
+      //          $("#names").html(output);
+      //       }
+      //   };
+      // xhttp.open("GET", "/people.json", true);
+      // xhttp.send();
+      function showNames(response) {
+        //console.log(response);
+         var output = "";
+         for(var i = 0; i < response.person.length; i ++) {
+           //console.log(response.person[i].name);
+           output += `<li>${response.person[i].name}</li>`;
+         }
+         $("#names").html(output);
+      }
+
+      $.get('./people.json', showNames);
+
+    </script>
+
+    <script type="text/javascript" src="./load_header.js">
+    </script>
+
+  </body>
+</html>
